@@ -35,8 +35,8 @@ import (
 
 	log "github.com/Sirupsen/logrus"
 	"github.com/facchinm/go-serial"
-	"github.com/facchinm/systray"
-	"github.com/facchinm/systray/example/icon"
+	"github.com/huangguozhen/systray"
+	"github.com/huangguozhen/systray/example/icon"
 	"github.com/skratchdot/open-golang/open"
 )
 
@@ -64,11 +64,11 @@ func addRebootTrayElement() {
 func setupSysTrayReal() {
 
 	systray.SetIcon(icon.Data)
-	mUrl := systray.AddMenuItem("Go to Arduino Create", "Arduino Create")
-	mDebug := systray.AddMenuItem("Open debug console", "Debug console")
-	menuVer := systray.AddMenuItem("Agent version "+version+"-"+git_revision, "")
-	mPause := systray.AddMenuItem("Pause Plugin", "")
-	//mQuit := systray.AddMenuItem("Quit Plugin", "")
+	// mUrl := systray.AddMenuItem("Go to Arduino Create", "Arduino Create")
+	mDebug := systray.AddMenuItem("调试", "Debug console")
+	menuVer := systray.AddMenuItem("版本"+version+"-"+git_revision, "")
+	mPause := systray.AddMenuItem("挂起", "")
+	//mQuit := systray.AddMenuItem("退出", "")
 
 	menuVer.Disable()
 
@@ -99,19 +99,19 @@ func setupSysTrayReal() {
 	}()
 
 	// We can manipulate the systray in other goroutines
-	go func() {
-		for {
-			<-mUrl.ClickedCh
-			open.Start("http://create.arduino.cc")
-		}
-	}()
+	// go func() {
+	// 	for {
+	// 		<-mUrl.ClickedCh
+	// 		open.Start("http://create.arduino.cc")
+	// 	}
+	// }()
 }
 
 func setupSysTrayHibernate() {
 
 	systray.SetIcon(icon.DataHibernate)
-	mOpen := systray.AddMenuItem("Open Plugin", "")
-	mQuit := systray.AddMenuItem("Kill Plugin", "")
+	mOpen := systray.AddMenuItem("启动", "")
+	mQuit := systray.AddMenuItem("退出", "")
 
 	go func() {
 		<-mOpen.ClickedCh
