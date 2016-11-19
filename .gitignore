@@ -7,7 +7,6 @@ snapshot/*
 public/
 artifacts*
 
-src/
 vendor/
 bin/
 pkg/
