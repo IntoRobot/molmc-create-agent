@@ -46,7 +46,7 @@ var (
 	address      = flag.String("address", "127.0.0.1", "The address where to listen. Defaults to localhost")
 	signatureKey = flag.String("signatureKey", "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvc0yZr1yUSen7qmE3cxF\nIE12rCksDnqR+Hp7o0nGi9123eCSFcJ7CkIRC8F+8JMhgI3zNqn4cUEn47I3RKD1\nZChPUCMiJCvbLbloxfdJrUi7gcSgUXrlKQStOKF5Iz7xv1M4XOP3JtjXLGo3EnJ1\npFgdWTOyoSrA8/w1rck4c/ISXZSinVAggPxmLwVEAAln6Itj6giIZHKvA2fL2o8z\nCeK057Lu8X6u2CG8tRWSQzVoKIQw/PKK6CNXCAy8vo4EkXudRutnEYHEJlPkVgPn\n2qP06GI+I+9zKE37iqj0k1/wFaCVXHXIvn06YrmjQw6I0dDj/60Wvi500FuRVpn9\ntwIDAQAB\n-----END PUBLIC KEY-----", "Pem-encoded public key to verify signed commandlines")
 	Tools        tools.Tools
-	indexURL     = flag.String("indexURL", "https://downloads.arduino.cc/packages/package_staging_index.json", "The address from where to download the index json containing the location of upload tools")
+	indexURL     = flag.String("indexURL", "https://downloads.molmc.com/packages/package_staging_index.json", "The address from where to download the index json containing the location of upload tools")
 )
 
 type NullWriter int
@@ -91,7 +91,7 @@ func main() {
 
 			// Instantiate Tools
 			usr, _ := user.Current()
-			directory := filepath.Join(usr.HomeDir, ".arduino-create")
+			directory := filepath.Join(usr.HomeDir, ".molmc-create")
 			Tools = tools.Tools{
 				Directory: directory,
 				IndexURL:  *indexURL,
@@ -127,7 +127,7 @@ func main() {
 				if err != nil {
 					panic(err)
 				}
-				_, err = f.WriteString("\norigins = http://webide.arduino.cc:8080\n")
+				_, err = f.WriteString("\norigins = http://webide.molmc.com:8080\n")
 				if err != nil {
 					panic(err)
 				}
