@@ -7,7 +7,7 @@
 #go install github.com/sanbornm/go-selfupdate
 
 VERSION=xxx
-APP_NAME=Arduino_Create_Bridge
+APP_NAME=Molmc_Create_Bridge
 
 # OUTPUT-COLORING
 red='\e[0;31m'
@@ -87,7 +87,7 @@ rm -rf snapshot/darwin_amd64
 rm -rf snapshot/windows_386
 
 extractVersionFromMain
-compilePlatform darwin amd64 o64-clang 1
+#compilePlatform darwin amd64 o64-clang 1
 #compilePlatformLinux linux 386 gcc
 compilePlatform linux amd64 gcc 1
 #compilePlatform linux arm 0
