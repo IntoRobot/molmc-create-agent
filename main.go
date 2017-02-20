@@ -203,7 +203,7 @@ func main() {
             extraOriginStr := "https://api.intorobot.com, http://api.intorobot.com, http://www.intorobot.com, https://www.intorbot.com, http://112.124.117.64, http://localhost"
 
 			for i := 8990; i < 9001; i++ {
-				extraOriginStr = extraOriginStr + ", http://localhost:" + strconv.Itoa(i) + ", https://localhost:" + strconv.Itoa(i)
+                extraOriginStr = extraOriginStr + ", http://localhost:" + strconv.Itoa(i) + ", https://localhost:" + strconv.Itoa(i) + ", http://112.124.117.64:" + strconv.Itoa(i)
 			}
 
 			r.Use(cors.Middleware(cors.Config{
