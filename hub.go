@@ -188,7 +188,7 @@ func checkCmd(m []byte) {
 
 	} else if strings.HasPrefix(sl, "list") {
 		go spList(false)
-		go spList(true)
+		//go spList(true)
 	} else if strings.HasPrefix(sl, "downloadtool") {
 		go func() {
 			args := strings.Split(s, " ")

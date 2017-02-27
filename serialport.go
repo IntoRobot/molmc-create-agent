@@ -383,6 +383,6 @@ func spHandlerClose(p *serport) {
 func spCloseReal(p *serport) {
 	p.bufferwatcher.Close()
 	p.portIo.Close()
-	spListDual(false)
-	spList(false)
+	//spListDual(false)
+	//spList(false)
 }
